@@ -101,7 +101,7 @@
             align-items: center;
         }
         
-        .nav-logo a {
+        .nav-logo {
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary-color);
@@ -264,7 +264,7 @@
             z-index: 4;
         }
         
-        /* Sección Clases - NUEVA SECCIÓN */
+        /* Sección Clases */
         #clases {
             background-color: var(--light-bg);
             position: relative;
@@ -336,7 +336,7 @@
             color: var(--text-color);
         }
         
-        /* Sección Beneficios - NUEVA SECCIÓN */
+        /* Sección Beneficios */
         #beneficios {
             background-color: var(--light-color);
         }
@@ -859,29 +859,67 @@
             font-size: 14px;
         }
         
-        /* Botón de WhatsApp */
+        /* Botón de WhatsApp MODERNO Y CENTRAL */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             bottom: 40px;
             right: 40px;
-            background-color: #25d366;
+            background: linear-gradient(135deg, #25d366, #128C7E);
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
+            font-size: 36px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border: 3px solid white;
+            animation: pulse-whatsapp 2s infinite;
         }
         
         .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+        
+        /* Efecto de pulso para el botón */
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+        
+        /* Indicador de mensaje flotante */
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            right: 85px;
         }
         
         /* Animaciones de aparición al hacer scroll */
@@ -1024,6 +1062,18 @@
             .footer-image {
                 max-width: 150px;
             }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 32px;
+            }
+            
+            .whatsapp-tooltip {
+                display: none; /* Ocultar tooltip en móviles */
+            }
         }
         
         @media (max-width: 480px) {
@@ -1060,27 +1110,28 @@
             }
             
             .whatsapp-float {
-                width: 50px;
-                height: 50px;
+                width: 55px;
+                height: 55px;
                 bottom: 20px;
                 right: 20px;
-                font-size: 25px;
+                font-size: 28px;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/5592216170" class="whatsapp-float" target="_blank">
+    <!-- Botón flotante de WhatsApp MODERNO -->
+    <a href="https://wa.me/525592216170?text=Hola,%20me%20interesa%20saber%20más%20sobre%20Balance%20Pro%20Studio" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">¡Contáctanos por WhatsApp!</div>
     </a>
 
     <header>
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="#">Balance Pro</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Balance Pro</a>
                 </div>
                 <div class="nav-menu">
                     <a href="#inicio" class="nav-link">Inicio</a>
@@ -1102,7 +1153,6 @@
         
         <div id="inicio" class="hero-content">
             <div class="hero-image-container">
-                <!-- Tu imagen original de portada -->
                 <img src="img/bg12.jpg" alt="Balance Pro Studio" class="hero-image">
                 <div class="hero-overlay"></div>
             </div>
@@ -1124,7 +1174,7 @@
     </header>
 
     <main>
-        <!-- Nueva Sección Clases -->
+        <!-- Sección Clases -->
         <section id="clases" class="contenedor animate-on-scroll">
             <h2 class="titulo">Nuestras Clases</h2>
             <div class="clases-grid">
@@ -1190,7 +1240,7 @@
             </div>
         </section>
 
-        <!-- Nueva Sección Beneficios -->
+        <!-- Sección Beneficios -->
         <section id="beneficios" class="contenedor animate-on-scroll">
             <h2 class="titulo">Beneficios de la Gimnasia</h2>
             <div class="beneficios-grid">
@@ -1228,7 +1278,8 @@
             </div>
         </section>
 
-        <!-- Sección Nosotros con imagen -->
+        <!-- Resto del código se mantiene igual -->
+        <!-- Sección Nosotros -->
         <section id="nosotros" class="contenedor animate-on-scroll">
             <h2 class="titulo">Nosotros</h2>
             <div class="nosotros-contenedor">
